@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frm_user
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frm_Obat
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,24 @@ Partial Class frm_user
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.chkAkses = New System.Windows.Forms.CheckBox()
-        Me.cmbAkses = New System.Windows.Forms.ComboBox()
+        Me.txtKodeObat = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbKategori = New System.Windows.Forms.ComboBox()
+        Me.txtHarga = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmbJenis = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.txtJumlah = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtNama = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GridUser = New System.Windows.Forms.DataGridView()
+        Me.GridObat = New System.Windows.Forms.DataGridView()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.btnNew = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -48,7 +52,7 @@ Partial Class frm_user
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.GridUser, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,11 +67,15 @@ Partial Class frm_user
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.chkAkses)
-        Me.TabPage1.Controls.Add(Me.cmbAkses)
+        Me.TabPage1.Controls.Add(Me.txtKodeObat)
         Me.TabPage1.Controls.Add(Me.Label4)
+        Me.TabPage1.Controls.Add(Me.cmbKategori)
+        Me.TabPage1.Controls.Add(Me.txtHarga)
+        Me.TabPage1.Controls.Add(Me.Label6)
+        Me.TabPage1.Controls.Add(Me.Label5)
+        Me.TabPage1.Controls.Add(Me.cmbJenis)
         Me.TabPage1.Controls.Add(Me.Label3)
-        Me.TabPage1.Controls.Add(Me.txtPass)
+        Me.TabPage1.Controls.Add(Me.txtJumlah)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.txtNama)
         Me.TabPage1.Controls.Add(Me.Label1)
@@ -76,101 +84,133 @@ Partial Class frm_user
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(587, 148)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Data User"
+        Me.TabPage1.Text = "Data Obat"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'chkAkses
+        'txtKodeObat
         '
-        Me.chkAkses.AutoSize = True
-        Me.chkAkses.Location = New System.Drawing.Point(112, 103)
-        Me.chkAkses.Name = "chkAkses"
-        Me.chkAkses.Size = New System.Drawing.Size(47, 17)
-        Me.chkAkses.TabIndex = 8
-        Me.chkAkses.Text = "Aktif"
-        Me.chkAkses.UseVisualStyleBackColor = True
-        '
-        'cmbAkses
-        '
-        Me.cmbAkses.FormattingEnabled = True
-        Me.cmbAkses.Items.AddRange(New Object() {"", "Administrator", "Dokter", "Kasir"})
-        Me.cmbAkses.Location = New System.Drawing.Point(112, 78)
-        Me.cmbAkses.Name = "cmbAkses"
-        Me.cmbAkses.Size = New System.Drawing.Size(121, 21)
-        Me.cmbAkses.TabIndex = 7
+        Me.txtKodeObat.Location = New System.Drawing.Point(115, 20)
+        Me.txtKodeObat.MaxLength = 10
+        Me.txtKodeObat.Name = "txtKodeObat"
+        Me.txtKodeObat.Size = New System.Drawing.Size(121, 20)
+        Me.txtKodeObat.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 103)
+        Me.Label4.Location = New System.Drawing.Point(20, 20)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Status"
+        Me.Label4.Size = New System.Drawing.Size(58, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Kode Obat"
+        '
+        'cmbKategori
+        '
+        Me.cmbKategori.FormattingEnabled = True
+        Me.cmbKategori.Items.AddRange(New Object() {"", "Herbal", "Generik"})
+        Me.cmbKategori.Location = New System.Drawing.Point(329, 17)
+        Me.cmbKategori.Name = "cmbKategori"
+        Me.cmbKategori.Size = New System.Drawing.Size(121, 21)
+        Me.cmbKategori.TabIndex = 4
+        '
+        'txtHarga
+        '
+        Me.txtHarga.Location = New System.Drawing.Point(329, 53)
+        Me.txtHarga.Name = "txtHarga"
+        Me.txtHarga.Size = New System.Drawing.Size(121, 20)
+        Me.txtHarga.TabIndex = 5
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(268, 53)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(36, 13)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Harga"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(268, 20)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 13)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "Kategori"
+        '
+        'cmbJenis
+        '
+        Me.cmbJenis.FormattingEnabled = True
+        Me.cmbJenis.Items.AddRange(New Object() {"", "Sirup", "Tablet", "Kapsul", "Serbuk"})
+        Me.cmbJenis.Location = New System.Drawing.Point(115, 74)
+        Me.cmbJenis.Name = "cmbJenis"
+        Me.cmbJenis.Size = New System.Drawing.Size(121, 21)
+        Me.cmbJenis.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 77)
+        Me.Label3.Location = New System.Drawing.Point(268, 82)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(36, 13)
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Akses"
+        Me.Label3.Text = "Jumlah"
         '
-        'txtPass
+        'txtJumlah
         '
-        Me.txtPass.Location = New System.Drawing.Point(112, 51)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(121, 20)
-        Me.txtPass.TabIndex = 3
+        Me.txtJumlah.Location = New System.Drawing.Point(329, 79)
+        Me.txtJumlah.Name = "txtJumlah"
+        Me.txtJumlah.Size = New System.Drawing.Size(121, 20)
+        Me.txtJumlah.TabIndex = 6
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(17, 51)
+        Me.Label2.Location = New System.Drawing.Point(20, 74)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.Size = New System.Drawing.Size(31, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Password"
+        Me.Label2.Text = "Jenis"
         '
         'txtNama
         '
-        Me.txtNama.Location = New System.Drawing.Point(112, 25)
+        Me.txtNama.Location = New System.Drawing.Point(115, 48)
         Me.txtNama.Name = "txtNama"
         Me.txtNama.Size = New System.Drawing.Size(121, 20)
-        Me.txtNama.TabIndex = 1
+        Me.txtNama.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(17, 25)
+        Me.Label1.Location = New System.Drawing.Point(20, 48)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 13)
+        Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nama User"
+        Me.Label1.Text = "Nama Obat"
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.GridUser)
+        Me.Panel1.Controls.Add(Me.GridObat)
         Me.Panel1.Controls.Add(Me.ToolStrip2)
         Me.Panel1.Location = New System.Drawing.Point(16, 192)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(587, 242)
         Me.Panel1.TabIndex = 3
         '
-        'GridUser
+        'GridObat
         '
-        Me.GridUser.AllowUserToAddRows = False
-        Me.GridUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.GridUser.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.GridUser.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.GridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.GridUser.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridUser.Location = New System.Drawing.Point(0, 25)
-        Me.GridUser.Name = "GridUser"
-        Me.GridUser.ReadOnly = True
-        Me.GridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridUser.Size = New System.Drawing.Size(587, 217)
-        Me.GridUser.TabIndex = 1
+        Me.GridObat.AllowUserToAddRows = False
+        Me.GridObat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.GridObat.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.GridObat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.GridObat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.GridObat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridObat.Location = New System.Drawing.Point(0, 25)
+        Me.GridObat.Name = "GridObat"
+        Me.GridObat.ReadOnly = True
+        Me.GridObat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.GridObat.Size = New System.Drawing.Size(587, 217)
+        Me.GridObat.TabIndex = 1
         '
         'ToolStrip2
         '
@@ -245,7 +285,7 @@ Partial Class frm_user
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(100, 25)
         '
-        'frm_user
+        'frm_Obat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -253,15 +293,15 @@ Partial Class frm_user
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Name = "frm_user"
+        Me.Name = "frm_Obat"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form User a1"
+        Me.Text = "Form Obat"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.GridUser, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridObat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip2.ResumeLayout(False)
         Me.ToolStrip2.PerformLayout()
         Me.ResumeLayout(False)
@@ -272,7 +312,7 @@ Partial Class frm_user
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ToolStrip2 As ToolStrip
-    Friend WithEvents GridUser As DataGridView
+    Friend WithEvents GridObat As DataGridView
     Friend WithEvents btnNew As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents btnSave As ToolStripButton
@@ -280,15 +320,19 @@ Partial Class frm_user
     Friend WithEvents btnEdit As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents btnDelete As ToolStripButton
-    Friend WithEvents chkAkses As CheckBox
-    Friend WithEvents cmbAkses As ComboBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents cmbJenis As ComboBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtPass As TextBox
+    Friend WithEvents txtJumlah As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtNama As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents txtSearch As ToolStripTextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents cmbKategori As System.Windows.Forms.ComboBox
+    Friend WithEvents txtHarga As System.Windows.Forms.TextBox
+    Friend WithEvents txtKodeObat As TextBox
+    Friend WithEvents Label4 As Label
 End Class

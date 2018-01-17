@@ -36,7 +36,7 @@ Module MdlMain
 
     '# Server Instance...
     Public gs_Database As String = "KLINIKDB"
-    Public gs_DBServer As String = "MMTNOTE02\SQLSERVER2012"
+    Public gs_DBServer As String = "MMTNOTE02\SQLEXPRESS"
     Public gs_DBAuthMode As String = "mixed"
     Public gs_DBUserName As String = "sa"
     Public gs_DBPassword As String = "12345"

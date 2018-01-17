@@ -86,16 +86,46 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frm_login.Designer.vb">
+    <Compile Include="Form\Master\frm_login.Designer.vb">
       <DependentUpon>frm_login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\frm_login.vb">
+    <Compile Include="Form\Master\frm_login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\frm_user.Designer.vb">
+    <Compile Include="Form\Master\frm_pasien.Designer.vb">
+      <DependentUpon>frm_pasien.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Master\frm_pasien.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Master\frm_obat.Designer.vb">
+      <DependentUpon>frm_obat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Master\frm_obat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Master\frm_dokter.Designer.vb">
+      <DependentUpon>frm_dokter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Master\frm_dokter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Master\frm_poli.Designer.vb">
+      <DependentUpon>frm_poli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Master\frm_poli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Master\frm_user.Designer.vb">
       <DependentUpon>frm_user.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form\frm_user.vb">
+    <Compile Include="Form\Master\frm_user.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_pendaftaran.Designer.vb">
+      <DependentUpon>frm_pendaftaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_pendaftaran.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modul\MdlMain.vb" />
@@ -117,11 +147,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form\frm_login.resx">
+    <EmbeddedResource Include="Form\Master\frm_login.resx">
       <DependentUpon>frm_login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\frm_user.resx">
+    <EmbeddedResource Include="Form\Master\frm_pasien.resx">
+      <DependentUpon>frm_pasien.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Master\frm_obat.resx">
+      <DependentUpon>frm_obat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Master\frm_dokter.resx">
+      <DependentUpon>frm_dokter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Master\frm_poli.resx">
+      <DependentUpon>frm_poli.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Master\frm_user.resx">
       <DependentUpon>frm_user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Transaksi\frm_pendaftaran.resx">
+      <DependentUpon>frm_pendaftaran.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
