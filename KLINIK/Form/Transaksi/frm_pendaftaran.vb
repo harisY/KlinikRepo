@@ -201,21 +201,21 @@ Public Class frm_pendaftaran
             End If
         End If
 
-        If buttonStat = ButtonState.Edit Then
-            Dim isEdit As Boolean = isControlEmpty()
-            If isEdit Then
-                Dim Query As String = "update tbl_pasien set nama = '" & txtNama.Text & "', " &
-                                      "alamat='" & txtAlamat.Text & "', " &
-                                      "jk='" & cmbJK.Text & "', " &
-                                      "umur='" & txtUmur.Text & "', " &
-                                      "telp = '" & txtTelp.Text & "' where id_pasien ='" & CmbPasien.Text & "'"
-                Dim status As Integer = ExecQuery(Query)
-                If status <> 0 Then
-                    MsgBox("Update Successfuly !", MsgBoxStyle.Information, "Iformasi")
-                    Awal()
-                End If
-            End If
-        End If
+        'If buttonStat = ButtonState.Edit Then
+        '    Dim isEdit As Boolean = isControlEmpty()
+        '    If isEdit Then
+        '        Dim Query As String = "update tbl_pasien set nama = '" & txtNama.Text & "', " &
+        '                              "alamat='" & txtAlamat.Text & "', " &
+        '                              "jk='" & cmbJK.Text & "', " &
+        '                              "umur='" & txtUmur.Text & "', " &
+        '                              "telp = '" & txtTelp.Text & "' where id_pasien ='" & CmbPasien.Text & "'"
+        '        Dim status As Integer = ExecQuery(Query)
+        '        If status <> 0 Then
+        '            MsgBox("Update Successfuly !", MsgBoxStyle.Information, "Iformasi")
+        '            Awal()
+        '        End If
+        '    End If
+        'End If
 
     End Sub
 
@@ -473,9 +473,7 @@ Public Class frm_pendaftaran
     End Sub
 
     Private Sub CmbPasien_Leave(sender As Object, e As EventArgs) Handles CmbPasien.Leave
-        Dim kode As String
-        kode = CmbPasien.Text
-        CmbPasien.Text = Microsoft.VisualBasic.Left(kode, 5)
+
     End Sub
 
     Private Sub CmbDok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CmbDok.KeyPress
