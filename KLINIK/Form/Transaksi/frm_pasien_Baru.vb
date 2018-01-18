@@ -1,9 +1,10 @@
 ﻿Imports System
-Imports System.Data
+Imports System.Data.SqlClient
 Public Class frm_pasien_baru
     Dim id As Integer
     Dim buttonStat As New ButtonState
-    Private Sub frm_pasien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub frm_pasien_baru_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Awal()
     End Sub
 
@@ -133,21 +134,29 @@ Public Class frm_pasien_baru
             If dt.Rows.Count > 0 Then
                 MsgBox("Kode Sudah Digunakan", vbOKOnly, "Cek Data")
             Else
-                Dim isComplete As Boolean = isControlEmpty()
-                If isComplete Then
-                    Dim Query As String = "Insert into tbl_pasien(id_pasien,nama,alamat,jk,umur,telp)" &
-                                           "values('" & txtKode.Text & "','" & txtNama.Text & "','" & txtAlamat.Text & "', " &
-                                           "'" & cmbJK.Text & "', '" & txtUmur.Text & "','" & txtTelp.Text & "')"
+                'Dim isComplete As Boolean = isControlEmpty()
+                'If isComplete Then
+                '    Dim Query As String = "Insert into tbl_pasien(id_pasien,nama,alamat,jk,umur,telp)" &
+                '                           "values('" & txtKode.Text & "','" & txtNama.Text & "','" & txtAlamat.Text & "', " &
+                '                           "'" & cmbJK.Text & "', '" & txtUmur.Text & "','" & txtTelp.Text & "')"
 
-                    Dim status As Integer
-                    status = ExecQuery(Query)
-                    If status <> 0 Then
-                        MsgBox("Save Successfuly !", MsgBoxStyle.Information, "Iformasi")
+                '    Dim status As Integer
+                '    status = ExecQuery(Query)
+                '    If status <> 0 Then
+                '        MsgBox("Save Successfuly !", MsgBoxStyle.Information, "Iformasi")
 
-                        Me.Close()
+                frm_pendaftaran.CmbPasien.Text = txtKode.Text
+                frm_pendaftaran.txtNama.Text = txtNama.Text
+                frm_pendaftaran.txtAlamat.Text = txtAlamat.Text
+                frm_pendaftaran.cmbJK.Text = cmbJK.Text
+                frm_pendaftaran.txtUmur.Text = txtUmur.Text
+                frm_pendaftaran.txtTelp.Text = txtTelp.Text
 
-                    End If
-                End If
+
+                Me.Close()
+
+                'End If
+                'End If
             End If
         End If
 
@@ -258,4 +267,6 @@ Public Class frm_pasien_baru
     Private Sub txtSearch_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+
 End Class

@@ -99,7 +99,7 @@ Public Class frm_dokter
     Private Sub TampilData()
         Try
             Dim dt As New DataTable
-            Dim Query = "Select id_dokter ID, nama Nama, spesialis Spesialis, alamat Alamat, telp Telepon, tarif Tarif from tbl_dokter"
+            Dim Query = "Select id_dokter ID, nama_dokter Nama, spesialis Spesialis, alamat Alamat, telp Telepon, tarif Tarif from tbl_dokter order by id_dokter"
             dt = GetDataTableByCommand(Query)
             GridDokter.DataSource = dt
             'GridDokter.Columns(0).Visible = False
@@ -150,7 +150,7 @@ Public Class frm_dokter
 
                 Dim isComplete As Boolean = isControlEmpty()
                 If isComplete Then
-                    Dim Query As String = "Insert into tbl_dokter(id_dokter,nama,spesialis,alamat,telp,tarif)" &
+                    Dim Query As String = "Insert into tbl_dokter(id_dokter,nama_dokter,spesialis,alamat,telp,tarif)" &
                                            "values('" & txtKodeDokter.Text & "','" & txtNama.Text & "', '" & cmbSpesialis.Text & "', " &
                                            "'" & txtAlamat.Text & "','" & txtTlp.Text & "','" & txtTarif.Text & "')"
                     Dim status As Integer
@@ -166,7 +166,7 @@ Public Class frm_dokter
         If buttonStat = ButtonState.Edit Then
             Dim isEdit As Boolean = isControlEmpty()
             If isEdit Then
-                Dim Query As String = "update tbl_dokter set nama = '" & txtNama.Text & "', " &
+                Dim Query As String = "update tbl_dokter set nama_dokter = '" & txtNama.Text & "', " &
                                       "spesialis = '" & cmbSpesialis.Text & "'," &
                                        "alamat='" & txtAlamat.Text & "'," &
                                        "telp = '" & txtTlp.Text & "'," &
@@ -231,8 +231,8 @@ Public Class frm_dokter
     Private Sub SearchData()
         Try
             If txtSearch.Text <> "" Then
-                Dim Query As String = "Select id_dokter ID, nama Nama, spesialis Spesialis, alamat Alamat, telp Telepon from tbl_dokter " &
-                                        "where nama like '%" & txtSearch.Text & "%'"
+                Dim Query As String = "Select id_dokter ID, nama_dokter Nama, spesialis Spesialis, alamat Alamat, telp Telepon from tbl_dokter " &
+                                        "where nama_dokter like '%" & txtSearch.Text & "%'"
                 Dim dt As DataTable
                 dt = New DataTable
                 dt = GetDataTable(Query)

@@ -103,7 +103,7 @@ Public Class frm_pasien
         Try
             Dim dt As New DataTable
             'Dim Query = "Select * from tbl_obat"
-            Dim Query = "Select id_pasien Kode, nama Nama, alamat Alamat, jk JK, umur Umur, Telp Telp from tbl_pasien order by id_pasien desc"
+            Dim Query = "Select id_pasien Kode, nama_pasien Nama, alamat Alamat, jk JK, umur Umur, Telp Telp from tbl_pasien order by id_pasien"
             dt = GetDataTableByCommand(Query)
             GridPasien.DataSource = dt
         Catch ex As Exception
@@ -151,7 +151,7 @@ Public Class frm_pasien
             Else
                 Dim isComplete As Boolean = isControlEmpty()
                 If isComplete Then
-                    Dim Query As String = "Insert into tbl_pasien(id_pasien,nama,alamat,jk,umur,telp)" &
+                    Dim Query As String = "Insert into tbl_pasien(id_pasien,nama_pasien,alamat,jk,umur,telp)" &
                                            "values('" & txtKode.Text & "','" & txtNama.Text & "','" & txtAlamat.Text & "', " &
                                            "'" & cmbJK.Text & "', '" & txtUmur.Text & "','" & txtTelp.Text & "')"
 
@@ -168,7 +168,7 @@ Public Class frm_pasien
         If buttonStat = ButtonState.Edit Then
             Dim isEdit As Boolean = isControlEmpty()
             If isEdit Then
-                Dim Query As String = "update tbl_pasien set nama = '" & txtNama.Text & "', " &
+                Dim Query As String = "update tbl_pasien set nama_pasien = '" & txtNama.Text & "', " &
                                       "alamat='" & txtAlamat.Text & "', " &
                                       "jk='" & cmbJK.Text & "', " &
                                       "umur='" & txtUmur.Text & "', " &
@@ -212,8 +212,8 @@ Public Class frm_pasien
     Private Sub SearchData()
         Try
             If txtSearch.Text <> "" Then
-                Dim Query As String = "Select id_pasien Kode, nama Nama, alamat Alamat, jk JK, umur Umur, telp Telp from tbl_pasien " &
-                                        "where nama like '%" & txtSearch.Text & "%'"
+                Dim Query As String = "Select id_pasien Kode, nama_pasien Nama, alamat Alamat, jk JK, umur Umur, telp Telp from tbl_pasien " &
+                                        "where nama_pasien like '%" & txtSearch.Text & "%'"
                 Dim dt As DataTable
                 dt = New DataTable
                 dt = GetDataTable(Query)

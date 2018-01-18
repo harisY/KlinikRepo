@@ -5,6 +5,7 @@ Public Class frm_pendaftaran
     Dim id As Integer
     Dim buttonStat As New ButtonState
     Dim en As New CultureInfo("en-US")
+    ' Public FormPasienBaru As New frm_pasien_baru
     Private Sub frm_pasien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Awal()
         Call Load_Poli()
@@ -58,6 +59,7 @@ Public Class frm_pendaftaran
 
         buttonStat = ButtonState.Normal
         btnNew.Text = "New"
+
 
 
     End Sub
@@ -128,15 +130,21 @@ Public Class frm_pendaftaran
 
     End Sub
     Private Sub TampilData()
-        Try
-            Dim dt As New DataTable
-            'Dim Query = "Select * from tbl_obat"
-            Dim Query = "Select id_pasien Kode, nama Nama, alamat Alamat, jk JK, umur Umur, Telp Telp from tbl_pasien order by id_pasien desc"
-            dt = GetDataTableByCommand(Query)
-            GridPasien.DataSource = dt
-        Catch ex As Exception
+        'Try
+        Dim dt As New DataTable
+        'Dim Query = "Select * from tbl_obat"
+        Dim Query = "select a.id_Pendaftaran [No Daftar], a.tgl [Tanggal]," &
+                            "b.nama_pasien [Nama Pasien], c.nama_dokter [Nama Dokter]," &
+                            "d.nama_poli [Nama Poli] , a.biaya [Biaya Dokter]" &
+                            " from tbl_pendaftaran a " &
+                            " inner join tbl_pasien b on a.id_pasien = b.id_pasien " &
+                            " inner join tbl_dokter c on a.id_dokter = c.id_dokter " &
+                            " inner join tbl_poli d on a.id_poli = d.id_poli"
+        dt = GetDataTableByCommand(Query)
+        GridPasien.DataSource = dt
+        ' Catch ex As Exception
 
-        End Try
+        'End Try
     End Sub
 
     Private Function isControlEmpty() As Boolean
@@ -195,8 +203,29 @@ Public Class frm_pendaftaran
                     status = ExecQuery(Query)
                     If status <> 0 Then
                         MsgBox("Save Successfuly !", MsgBoxStyle.Information, "Iformasi")
-                        Awal()
+
                     End If
+
+                    'Pasien Baru
+                    Dim Query2 As String = "Select * from tbl_pasien where id_pasien ='" & Microsoft.VisualBasic.Left(CmbPasien.Text, 5) & "'"
+                    Dim dt2 As DataTable
+                    dt2 = New DataTable
+                    dt2 = GetDataTable(Query2)
+                    If dt2.Rows.Count = 0 Then
+
+                        Dim Query3 As String = "Insert into tbl_pasien values " &
+                                                " ('" & CmbPasien.Text & "', " &
+                                                "'" & txtNama.Text & "', " &
+                                                "'" & txtAlamat.Text & "', " &
+                                                "'" & cmbJK.Text & "', " &
+                                                "'" & txtUmur.Text & "', " &
+                                                "'" & txtTelp.Text & "')"
+                        ExecQuery(Query3)
+
+                    End If
+
+                    Awal()
+
                 End If
             End If
         End If
@@ -379,7 +408,7 @@ Public Class frm_pendaftaran
         dt = GetDataTable(Query)
 
         For i As Integer = 0 To dt.Rows.Count - 1
-            CmbDok.Items.Add(dt.Rows.Item(i)("id_dokter") & "/" & dt.Rows.Item(i)("nama"))
+            CmbDok.Items.Add(dt.Rows.Item(i)("id_dokter") & "/" & dt.Rows.Item(i)("nama_dokter"))
             'CmbDok.Items.Add(dt.Rows.Item(i)("id_dokter"))
         Next
 
@@ -394,7 +423,7 @@ Public Class frm_pendaftaran
         dt = GetDataTable(Query)
 
         For i As Integer = 0 To dt.Rows.Count - 1
-            CmbPasien.Items.Add(dt.Rows.Item(i)("id_pasien") & "/" & dt.Rows.Item(i)("nama"))
+            CmbPasien.Items.Add(dt.Rows.Item(i)("id_pasien") & "/" & dt.Rows.Item(i)("nama_pasien"))
         Next
 
 
@@ -464,7 +493,7 @@ Public Class frm_pendaftaran
         Dim Query As String = "Select * from tbl_pasien where id_pasien = '" & Microsoft.VisualBasic.Left(CmbPasien.Text, 5) & "' "
 
         dt = GetDataTable(Query)
-        txtNama.Text = dt.Rows(0).Item("nama")
+        txtNama.Text = dt.Rows(0).Item("nama_pasien")
         txtAlamat.Text = dt.Rows(0).Item("alamat")
         cmbJK.Text = dt.Rows(0).Item("jk")
         txtUmur.Text = dt.Rows(0).Item("umur")
@@ -496,5 +525,10 @@ Public Class frm_pendaftaran
         If Asc(e.KeyChar) <> 0 Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ' FormPasienBaru.Show()
+        frm_pasien_baru.Show()
     End Sub
 End Class

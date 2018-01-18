@@ -24,6 +24,7 @@ Partial Class frm_pendaftaran
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.CmbPasien = New System.Windows.Forms.ComboBox()
         Me.CmbDok = New System.Windows.Forms.ComboBox()
         Me.txtBiaya = New System.Windows.Forms.TextBox()
@@ -74,6 +75,7 @@ Partial Class frm_pendaftaran
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.CmbPasien)
         Me.TabPage1.Controls.Add(Me.CmbDok)
         Me.TabPage1.Controls.Add(Me.txtBiaya)
@@ -103,6 +105,15 @@ Partial Class frm_pendaftaran
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Pendaftaran"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(492, 13)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 27
+        Me.Button1.Text = "Pasien Baru"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'CmbPasien
         '
@@ -297,10 +308,8 @@ Partial Class frm_pendaftaran
         'GridPasien
         '
         Me.GridPasien.AllowUserToAddRows = False
-        Me.GridPasien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.GridPasien.BackgroundColor = System.Drawing.SystemColors.Control
         Me.GridPasien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.GridPasien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.GridPasien.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridPasien.Location = New System.Drawing.Point(0, 25)
         Me.GridPasien.Name = "GridPasien"
@@ -410,7 +419,6 @@ Partial Class frm_pendaftaran
     Friend WithEvents Label7 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtNoDaftar As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtTanggal As TextBox
     Friend WithEvents cmbPoli As ComboBox
@@ -420,4 +428,6 @@ Partial Class frm_pendaftaran
     Friend WithEvents Label10 As Label
     Friend WithEvents CmbDok As ComboBox
     Friend WithEvents CmbPasien As ComboBox
+    Public WithEvents txtNoDaftar As TextBox
+    Friend WithEvents Button1 As Button
 End Class
