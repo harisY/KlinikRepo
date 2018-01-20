@@ -6,7 +6,7 @@ Public Class frm_pendaftaran
     Dim buttonStat As New ButtonState
     Dim en As New CultureInfo("en-US")
     ' Public FormPasienBaru As New frm_pasien_baru
-    Private Sub frm_pasien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frm_pendaftaran_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Awal()
         Call Load_Poli()
         Call Load_dokter()
@@ -192,9 +192,9 @@ Public Class frm_pendaftaran
                 Dim dokter As String() = CmbDok.Text.Split(New Char() {"/"c}, 2)
                 Dim pasien As String() = CmbPasien.Text.Split(New Char() {"/"c}, 2)
                 If isComplete Then
-                    Dim Query As String = "Insert into tbl_pendaftaran(id_pendaftaran,tgl,id_dokter,id_pasien,id_poli,biaya)" &
+                    Dim Query As String = "Insert into tbl_pendaftaran(id_pendaftaran,tgl,id_dokter,id_pasien,id_poli,biaya,post)" &
                                            "values('" & txtNoDaftar.Text & "','" & Format(DateTime.Parse(txtTanggal.Text), "yyyy/MM/dd hh:mm:ss") & "','" & dokter(0) & "', " &
-                                           "'" & pasien(0) & "', '" & poli(0) & "','" & txtBiaya.Text & "')"
+                                           "'" & pasien(0) & "', '" & poli(0) & "','" & txtBiaya.Text & "','0')"
 
                     Dim status As Integer
 

@@ -128,6 +128,18 @@
     <Compile Include="Form\Transaksi\frm_pasien_Baru.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\Transaksi\frm_pembayaran.Designer.vb">
+      <DependentUpon>frm_pembayaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_pembayaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_resep.Designer.vb">
+      <DependentUpon>frm_resep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_resep.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\Transaksi\frm_pendaftaran.Designer.vb">
       <DependentUpon>frm_pendaftaran.vb</DependentUpon>
     </Compile>
@@ -173,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Transaksi\frm_pasien_Baru.resx">
       <DependentUpon>frm_pasien_Baru.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Transaksi\frm_pembayaran.resx">
+      <DependentUpon>frm_pembayaran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Transaksi\frm_resep.resx">
+      <DependentUpon>frm_resep.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Transaksi\frm_pendaftaran.resx">
       <DependentUpon>frm_pendaftaran.vb</DependentUpon>
