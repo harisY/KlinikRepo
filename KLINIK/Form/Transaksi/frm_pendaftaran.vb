@@ -37,6 +37,7 @@ Public Class frm_pendaftaran
         cmbPoli.Text = ""
         CmbDok.Text = ""
         txtBiaya.Text = "0"
+        txtAdm.Text = "0"
 
 
         CmbPasien.Enabled = False
@@ -50,6 +51,7 @@ Public Class frm_pendaftaran
         CmbDok.Enabled = False
         txtBiaya.Enabled = False
         txtTanggal.Enabled = False
+        txtAdm.Enabled = False
 
 
 
@@ -77,6 +79,7 @@ Public Class frm_pendaftaran
         cmbPoli.Text = ""
         CmbDok.Text = ""
         txtBiaya.Text = "0"
+        txtAdm.Text = "0"
 
 
         CmbPasien.Enabled = True
@@ -93,6 +96,7 @@ Public Class frm_pendaftaran
         CmbDok.Enabled = True
         txtBiaya.Enabled = True
         txtTanggal.Enabled = True
+        txtAdm.Enabled = True
 
         btnNew.Enabled = True
         btnSave.Enabled = True
@@ -192,9 +196,9 @@ Public Class frm_pendaftaran
                 Dim dokter As String() = CmbDok.Text.Split(New Char() {"/"c}, 2)
                 Dim pasien As String() = CmbPasien.Text.Split(New Char() {"/"c}, 2)
                 If isComplete Then
-                    Dim Query As String = "Insert into tbl_pendaftaran(id_pendaftaran,tgl,id_dokter,id_pasien,id_poli,biaya,post)" &
+                    Dim Query As String = "Insert into tbl_pendaftaran(id_pendaftaran,tgl,id_dokter,id_pasien,id_poli,biaya,adm,post)" &
                                            "values('" & txtNoDaftar.Text & "','" & Format(DateTime.Parse(txtTanggal.Text), "yyyy/MM/dd hh:mm:ss") & "','" & dokter(0) & "', " &
-                                           "'" & pasien(0) & "', '" & poli(0) & "','" & txtBiaya.Text & "','0')"
+                                           "'" & pasien(0) & "', '" & poli(0) & "','" & txtBiaya.Text & "','" & txtAdm.Text & "','0')"
 
                     Dim status As Integer
 
@@ -273,12 +277,6 @@ Public Class frm_pendaftaran
             MsgBox(ex.Message)
         End Try
     End Sub
-
-
-
-
-
-
 
     Private Sub txtHarga_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUmur.KeyPress
         If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
@@ -362,19 +360,19 @@ Public Class frm_pendaftaran
         If dt.Rows.Count = 0 Then
 
 
-            txtNoDaftar.Text = "TGRB/" & date2 & "/" & date1 & "/01"
+            txtNoDaftar.Text = "REGS/" & date2 & "/" & date1 & "/01"
         Else
             txtNoDaftar.Text = dt.Rows(0).Item("id_pendaftaran")
             txtNoDaftar.Text = Microsoft.VisualBasic.Mid(txtNoDaftar.Text, 6, 5)
             If txtNoDaftar.Text <> Ulang Then
-                txtNoDaftar.Text = "TGRB/" & date2 & "/" & date1 & "/01"
+                txtNoDaftar.Text = "REGS/" & date2 & "/" & date1 & "/01"
             Else
                 txtNoDaftar.Text = dt.Rows(0).Item("id_pendaftaran")
                 txtNoDaftar.Text = Val(Microsoft.VisualBasic.Mid(txtNoDaftar.Text, 12, 2)) + 1
                 If Len(txtNoDaftar.Text) = 1 Then
-                    txtNoDaftar.Text = "TGRB/" & date2 & "/" & date1 & "/0" & txtNoDaftar.Text & ""
+                    txtNoDaftar.Text = "REGS/" & date2 & "/" & date1 & "/0" & txtNoDaftar.Text & ""
                 Else
-                    txtNoDaftar.Text = "TGRB/" & date2 & "/" & date1 & "/" & txtNoDaftar.Text & ""
+                    txtNoDaftar.Text = "REGS/" & date2 & "/" & date1 & "/" & txtNoDaftar.Text & ""
 
                 End If
 
@@ -430,17 +428,7 @@ Public Class frm_pendaftaran
     End Sub
 
 
-    Private Sub txtSearch_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub cmbPoli_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPoli.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub txtSearch_KeyPress(sender As Object, e As KeyPressEventArgs)
-
-    End Sub
+   
 
     Private Sub cmbPoli_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbPoli.KeyPress
         If Asc(e.KeyChar) <> 0 Then
@@ -456,9 +444,7 @@ Public Class frm_pendaftaran
         End If
     End Sub
 
-    Private Sub txtTanggal_TextChanged(sender As Object, e As EventArgs) Handles txtTanggal.TextChanged
-
-    End Sub
+  
 
     Private Sub txtTanggal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTanggal.KeyPress
         If Asc(e.KeyChar) <> 0 Then
@@ -477,12 +463,14 @@ Public Class frm_pendaftaran
     End Sub
 
     Private Sub CmbDok_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbDok.SelectedIndexChanged
+
         Dim dt As DataTable
         dt = New DataTable
         Dim Query As String = "Select * from tbl_dokter where id_dokter = '" & Microsoft.VisualBasic.Left(CmbDok.Text, 4) & "' "
 
         dt = GetDataTable(Query)
         txtBiaya.Text = dt.Rows(0).Item("tarif")
+        txtAdm.Text = "15000"
 
     End Sub
 

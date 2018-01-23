@@ -53,8 +53,6 @@ Public Class frm_resep
         buttonStat = ButtonState.Normal
         btnNew.Text = "New"
 
-
-
     End Sub
 
     Private Sub TextNew()
@@ -203,9 +201,7 @@ Public Class frm_resep
         End If
     End Sub
 
-    Private Sub cmbJenis_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
+   
 
     Private Sub cmbKategori_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Asc(e.KeyChar) <> 0 Then
@@ -213,13 +209,7 @@ Public Class frm_resep
         End If
     End Sub
 
-    Private Sub cmbKategori_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub GridPasien_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles GridResep.CellContentClick
-
-    End Sub
+   
 
     Private Sub KodeOtomatis()
 
@@ -279,7 +269,7 @@ Public Class frm_resep
     End Sub
 
    
-    Private Sub txtTanggal_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTanggal.KeyPress
+    Private Sub txtTanggal_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Asc(e.KeyChar) <> 0 Then
             e.Handled = True
         End If
@@ -287,36 +277,19 @@ Public Class frm_resep
 
    
 
-    Private Sub txtNoDaftar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNoresep.KeyPress
+    Private Sub txtNoDaftar_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Asc(e.KeyChar) <> 0 Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub cmbPendaftaran_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmbPendaftaran.KeyPress
+    Private Sub cmbPendaftaran_KeyPress(sender As Object, e As KeyPressEventArgs)
         If Asc(e.KeyChar) <> 0 Then
             e.Handled = True
         End If
     End Sub
 
-    Private Sub cmbPendaftaran_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPendaftaran.SelectedIndexChanged
-
-        Dim dt As DataTable
-        dt = New DataTable
-        'Dim Query As String = "Select * from tbl_pasien where id_pasien = '" & Microsoft.VisualBasic.Left(CmbPasien.Text, 5) & "' "
-
-        Dim Query = "select a.id_Pendaftaran, a.tgl, b.nama_pasien, c.nama_dokter, d.nama_poli, a.biaya" &
-                            " from tbl_pendaftaran a " &
-                            " inner join tbl_pasien b on a.id_pasien = b.id_pasien " &
-                            " inner join tbl_dokter c on a.id_dokter = c.id_dokter " &
-                            " inner join tbl_poli d on a.id_poli = d.id_poli " &
-                            " where id_pendaftaran ='" & cmbPendaftaran.Text & "'"
-
-        dt = GetDataTable(Query)
-        txtNamaPasien.Text = dt.Rows(0).Item("nama_pasien")
-       
-
-    End Sub
+   
 
     Private Sub ColumsDataGrid()
 
@@ -424,35 +397,40 @@ Public Class frm_resep
         End If
     End Sub
 
+   
+    Private Sub txtNamaPasien_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If Asc(e.KeyChar) <> 0 Then
+            e.Handled = True
+        End If
+    End Sub
+
+    
+
+    Private Sub txtTotalBiaya_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If Asc(e.KeyChar) <> 0 Then
+            e.Handled = True
+        End If
+    End Sub
+
+  
+  
+    Private Sub cmbPendaftaran_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbPendaftaran.SelectedIndexChanged
+        Dim dt As DataTable
+        dt = New DataTable
+        'Dim Query As String = "Select * from tbl_pasien where id_pasien = '" & Microsoft.VisualBasic.Left(CmbPasien.Text, 5) & "' "
+
+        Dim Query = "select a.id_Pendaftaran, a.tgl, b.nama_pasien, c.nama_dokter, d.nama_poli, a.biaya" &
+                            " from tbl_pendaftaran a " &
+                            " inner join tbl_pasien b on a.id_pasien = b.id_pasien " &
+                            " inner join tbl_dokter c on a.id_dokter = c.id_dokter " &
+                            " inner join tbl_poli d on a.id_poli = d.id_poli " &
+                            " where id_pendaftaran ='" & cmbPendaftaran.Text & "'"
+
+        dt = GetDataTable(Query)
+        txtNamaPasien.Text = dt.Rows(0).Item("nama_pasien")
+    End Sub
+
     Private Sub txtJml_TextChanged(sender As Object, e As EventArgs) Handles txtJml.TextChanged
-
-    End Sub
-
-    Private Sub txtNoresep_TextChanged(sender As Object, e As EventArgs) Handles txtNoresep.TextChanged
-
-    End Sub
-
-    Private Sub txtTanggal_TextChanged(sender As Object, e As EventArgs) Handles txtTanggal.TextChanged
-
-    End Sub
-
-    Private Sub txtNamaPasien_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNamaPasien.KeyPress
-        If Asc(e.KeyChar) <> 0 Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtNamaPasien_TextChanged(sender As Object, e As EventArgs) Handles txtNamaPasien.TextChanged
-
-    End Sub
-
-    Private Sub txtTotalBiaya_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTotalBiaya.KeyPress
-        If Asc(e.KeyChar) <> 0 Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtTotalBiaya_TextChanged(sender As Object, e As EventArgs) Handles txtTotalBiaya.TextChanged
 
     End Sub
 End Class

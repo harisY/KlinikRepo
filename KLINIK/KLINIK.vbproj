@@ -122,6 +122,12 @@
     <Compile Include="Form\Master\frm_user.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\Transaksi\frm_bayar.Designer.vb">
+      <DependentUpon>frm_bayar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Transaksi\frm_bayar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\Transaksi\frm_pasien_Baru.Designer.vb">
       <DependentUpon>frm_pasien_Baru.vb</DependentUpon>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Master\frm_user.resx">
       <DependentUpon>frm_user.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Transaksi\frm_bayar.resx">
+      <DependentUpon>frm_bayar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Transaksi\frm_pasien_Baru.resx">
       <DependentUpon>frm_pasien_Baru.vb</DependentUpon>

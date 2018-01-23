@@ -57,6 +57,8 @@ Partial Class frm_pendaftaran
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.btnBatal = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.txtAdm = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -75,6 +77,8 @@ Partial Class frm_pendaftaran
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.txtAdm)
+        Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.CmbPasien)
         Me.TabPage1.Controls.Add(Me.CmbDok)
@@ -372,6 +376,22 @@ Partial Class frm_pendaftaran
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
         '
+        'txtAdm
+        '
+        Me.txtAdm.Location = New System.Drawing.Point(102, 122)
+        Me.txtAdm.Name = "txtAdm"
+        Me.txtAdm.Size = New System.Drawing.Size(121, 20)
+        Me.txtAdm.TabIndex = 28
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 125)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(57, 13)
+        Me.Label12.TabIndex = 29
+        Me.Label12.Text = "Biaya Adm"
+        '
         'frm_pendaftaran
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -430,4 +450,6 @@ Partial Class frm_pendaftaran
     Friend WithEvents CmbPasien As ComboBox
     Public WithEvents txtNoDaftar As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtAdm As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class
